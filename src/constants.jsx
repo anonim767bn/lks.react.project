@@ -1,4 +1,5 @@
 export const AppPaths = {
     main: "/",
-    services: "/services"
+    services: "/services",
+    auth: "/auth"
 }
