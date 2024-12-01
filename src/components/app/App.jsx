@@ -2,8 +2,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppPaths } from '../../constants';
-import { Responses404 } from '@consta/uikit/Responses404';
+import NotFoundPage from '../pages/notFound-page/NotFoundPage';
 import MainLayout from '../../layouts/main-layouts/MainLayout';
+
 
 const MainPage = () => {
   return (
@@ -12,6 +13,8 @@ const MainPage = () => {
     </div>
   );
 }
+
+
 
 function App() {
   return (
@@ -22,7 +25,7 @@ function App() {
             <MainPage />
           </MainLayout>
         } />
-        <Route path="*" element={<Responses404 />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
