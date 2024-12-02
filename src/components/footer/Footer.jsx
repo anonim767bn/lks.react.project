@@ -9,7 +9,6 @@ import './Footer.css';
 const Footer = () => {
     return (
         <div className="footer">
-        <hr/>
             <Stack direction="horizontal" gap={2} className="p-3"> 
                 <NavLink to={AppPaths.main}>
                     <Button>

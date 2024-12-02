@@ -8,6 +8,7 @@ import MainLayout from '../../layouts/main-layouts/MainLayout';
 import LoginPage from '../pages/login-page/LoginPage';
 import './App.css';
 import ServiceDetailPage from '../pages/service-detail/ServiceDetailPage';
+import ProfilePage from '../pages/profile-page/ProfilePage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route index element={<MainPage />} />
           <Route path={AppPaths.services} element={<ServicesPage />} />
           <Route path={`${AppPaths.services}/:id`} element={<ServiceDetailPage />} /> {/* Новый маршрут */}
+          <Route path='user/:id' element={<ProfilePage />} /> {/* Новый маршрут */}
           <Route path = {AppPaths.auth} element = {<LoginPage/>}/>
         </Route>
         <Route path="*" element={<NotFoundPage />} />
