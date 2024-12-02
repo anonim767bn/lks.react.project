@@ -5,6 +5,7 @@ import NotFoundPage from '../pages/notFound-page/NotFoundPage';
 import MainPage from '../pages/main-page/MainPage';
 import ServicesPage from '../pages/services-page/ServicesPage';
 import MainLayout from '../../layouts/main-layouts/MainLayout';
+import './App.css';
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Card, Button, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getNewsListAction } from '../../../store/ApiActions';
 
@@ -12,19 +12,23 @@ const MainPage = () =>{
         setNews(data);
       });
     }, []);
+    const truncateText = (text, maxLength) => {
+      if (text.length <= maxLength) {
+        return text;
+      }
+      return text.substring(0, maxLength) + '...';
+    };
     return (
       <div>
-        <h1>Список новостей</h1>
+        <h1 className="my-4">Список новостей</h1>
         <Row>
           {news.map(item => (
-            <Col key={item.id} sm={12} md={6} lg={4}>
-              <Card style={{ marginBottom: '20px' }}>
-                {/* Если есть изображение, можно добавить его */}
-                {/* <Card.Img variant="top" src={item.imageUrl} /> */}
+            <Col key={item.id} sm={12} md={6} lg={4} className="mb-4">
+              <Card style={{ width: '100%' }}>
                 <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <Card.Text>{item.description}</Card.Text>
-                  <Button variant="primary">Подробнее</Button>
+                  <Card.Title>{item.name}</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">{item.subtitle}</Card.Subtitle>
+                  <Card.Text>{truncateText(item.description, 100)}</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -32,6 +36,6 @@ const MainPage = () =>{
         </Row>
       </div>
     );
-}
-
-export default MainPage
+  };
+  
+  export default MainPage;

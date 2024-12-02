@@ -6,5 +6,5 @@ export const AppPaths = {
 
 export const ApiUrls = {
     news: "https://673423afa042ab85d1190055.mockapi.io/api/v1/main",
-    services: ""
+    services: "https://673423afa042ab85d1190055.mockapi.io/api/v1/services"
 }
