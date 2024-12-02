@@ -23,3 +23,14 @@ export const getServicesListAction = async function(){
         return []
     }
 }
+
+export const getServiceDetailAction = async function(id){
+    try{
+        let response = await axios.get(`${ApiUrls.services}/${id}`);
+        return response.data
+    }
+    catch(err){
+        console.log(err)
+        return {}
+    }
+}
