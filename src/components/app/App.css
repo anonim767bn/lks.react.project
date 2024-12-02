@@ -1,0 +1,13 @@
+/* src/components/pages/header/Header.css */
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Убедитесь, что хэдер находится выше других элементов */
+    height: 60px; /* Установите высоту хедера */
+}
+
+/* Добавьте отступ сверху для основного контейнера */
+.main-content {
+    padding-top: 60px; /* Отступ равен высоте хедера */
+}

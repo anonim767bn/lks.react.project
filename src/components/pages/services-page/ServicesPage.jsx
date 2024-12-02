@@ -3,7 +3,7 @@ import { Card, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getToken } from '../login-page/LoginPage';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { fetchServices } from '../../../store/servicesSlice';
 
 const ServicesPage = () => {
@@ -47,7 +47,9 @@ const ServicesPage = () => {
                 <Card.Title>{item.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{item.subtitle}</Card.Subtitle>
                 <Card.Text>{truncateText(item.description, 100)}</Card.Text>
-                <Card.Link href={`/services/${item.id}`}>Подробнее</Card.Link>
+                <NavLink to={`/services/${item.id}`} className="btn btn-primary">
+                  Подробнее
+                </NavLink>
               </Card.Body>
             </Card>
           </Col>
@@ -59,8 +61,8 @@ const ServicesPage = () => {
   }
 
   return (
-    <div>
-      <h1 className="my-4">Список услуг</h1>
+    <div className="container my-4">
+      <h1 className="mb-4">Список услуг</h1>
       {content}
     </div>
   );

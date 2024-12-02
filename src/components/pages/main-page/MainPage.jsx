@@ -48,8 +48,8 @@ const MainPage = () => {
   }
 
   return (
-    <div>
-      <h1 className="my-4">Список новостей</h1>
+    <div className='container my-4'>
+      <h1 className="mb-4">Список новостей</h1>
       {content}
     </div>
   );

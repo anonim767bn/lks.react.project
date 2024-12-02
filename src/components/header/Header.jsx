@@ -6,6 +6,7 @@ import { Stack, Image } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getToken } from "../pages/login-page/LoginPage";
 import { useSelector } from 'react-redux';
+import './Header.css'; // Импортируем файл стилей
 
 const Header = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -21,7 +22,7 @@ const Header = () => {
     }, []);
 
     return (
-        <Stack direction="horizontal" gap={2} className="p-3">
+        <Stack direction="horizontal" gap={2} className="p-3 fixed-top bg-white shadow-sm">
             <NavLink to={AppPaths.main}>
                 <Button>
                     Главная

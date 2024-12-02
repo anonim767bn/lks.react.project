@@ -13,16 +13,18 @@ import ProfilePage from '../pages/profile-page/ProfilePage';
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path={AppPaths.main} element={<MainLayout />}>
-          <Route index element={<MainPage />} />
-          <Route path={AppPaths.services} element={<ServicesPage />} />
-          <Route path={`${AppPaths.services}/:id`} element={<ServiceDetailPage />} /> {/* Новый маршрут */}
-          <Route path='user/:id' element={<ProfilePage />} /> {/* Новый маршрут */}
-          <Route path = {AppPaths.auth} element = {<LoginPage/>}/>
-        </Route>
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <div className="main-content"> {/* Добавляем класс main-content */}
+        <Routes>
+          <Route path={AppPaths.main} element={<MainLayout />}>
+            <Route index element={<MainPage />} />
+            <Route path={AppPaths.services} element={<ServicesPage />} />
+            <Route path={`${AppPaths.services}/:id`} element={<ServiceDetailPage />} /> {/* Новый маршрут */}
+            <Route path='user/:id' element={<ProfilePage />} /> {/* Новый маршрут */}
+            <Route path={AppPaths.auth} element={<LoginPage />} />
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
