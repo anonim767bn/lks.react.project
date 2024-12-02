@@ -1,22 +1,28 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { AppPaths } from "../../constants";
 import Button from 'react-bootstrap/Button';
 import { Stack } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 const Header = () => {
     return (
         <Stack direction="horizontal" gap={2} className="p-3"> 
-            <Button href={AppPaths.main}>
-                Главная
-            </Button>
-            <Button href={AppPaths.services}>
-                Услуги
-            </Button>
-            <Button href={AppPaths.auth} className="ms-auto" variant="outline-secondary">
-                Вход
-            </Button>
+            <NavLink to={AppPaths.main}>
+                <Button>
+                    Главная
+                </Button>
+            </NavLink>
+            <NavLink to={AppPaths.services}>
+                <Button>
+                    Услуги
+                </Button>
+            </NavLink>
+            <NavLink to={AppPaths.auth} className="ms-auto">
+                <Button variant="outline-secondary">
+                    Вход
+                </Button>
+            </NavLink>
         </Stack>
     );
 };
