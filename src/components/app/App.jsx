@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainLayout />}>
+        <Route path={AppPaths.main} element={<MainLayout />}>
           <Route index element={<MainPage />} />
           <Route path={AppPaths.services} element={<ServicesPage />} />
         </Route>
