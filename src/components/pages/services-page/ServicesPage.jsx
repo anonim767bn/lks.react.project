@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Card, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { getServicesListAction } from '../../../store/ApiActions';
+import { useSelector, useDispatch } from 'react-redux';
 import { getToken } from '../login-page/LoginPage';
 import { useNavigate } from 'react-router-dom';
+import { fetchServices } from '../../../store/servicesSlice';
 
 const ServicesPage = () => {
-  const [news, setNews] = useState([]);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const services = useSelector((state) => state.services.data);
+  const servicesStatus = useSelector((state) => state.services.status);
+  const error = useSelector((state) => state.services.error);
 
   useEffect(() => {
     const token = getToken();
@@ -16,10 +20,10 @@ const ServicesPage = () => {
       return;
     }
 
-    getServicesListAction().then((data) => {
-      setNews(data);
-    });
-  }, [navigate]);
+    if (servicesStatus === 'idle') {
+      dispatch(fetchServices());
+    }
+  }, [dispatch, navigate, servicesStatus]);
 
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) {
@@ -28,11 +32,14 @@ const ServicesPage = () => {
     return text.substring(0, maxLength) + '...';
   };
 
-  return (
-    <div>
-      <h1 className="my-4">Список услуг</h1>
+  let content;
+
+  if (servicesStatus === 'loading') {
+    content = <div>Loading...</div>;
+  } else if (servicesStatus === 'succeeded') {
+    content = (
       <Row>
-        {news.map(item => (
+        {services.map((item) => (
           <Col key={item.id} sm={12} md={6} lg={4} className="mb-4">
             <Card style={{ width: '100%' }}>
               <Card.Img variant="top" src={item.image} alt={item.name} />
@@ -46,6 +53,15 @@ const ServicesPage = () => {
           </Col>
         ))}
       </Row>
+    );
+  } else if (servicesStatus === 'failed') {
+    content = <div>{error}</div>;
+  }
+
+  return (
+    <div>
+      <h1 className="my-4">Список услуг</h1>
+      {content}
     </div>
   );
 };
