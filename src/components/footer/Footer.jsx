@@ -21,7 +21,7 @@ const Footer = () => {
                     </Button>
                 </NavLink>
                 <div className="company-name">
-                    © Моя компания
+                © {new Date().getFullYear()} Моя компания
                 </div>
             </Stack>
         </div>
