@@ -79,10 +79,8 @@ const ProfilePage = () => {
             <img src={userData.image} height="100" width="100" alt={userData.firstName} />
             <h3>{userData.firstName + ' ' + userData.lastName}</h3>
             <div className='profile_card__bank_data' style={{ display: "flex", gap: "5px", flexDirection: "column"}}>
-                <div>Card number: <b>{userData.bank.cardNumber}</b></div>
-                <div>Card type: <b>{userData.bank.cardType}</b></div>
+                <div>Card number: <b>**** **** **** {userData.bank.cardNumber.slice(12)}</b></div>
                 <div>Currency: <b>{userData.bank.currency}</b></div>
-                <div>Expires at: <b>{userData.bank.cardExpire}</b></div>
             </div>
             <BootstrapButton variant='outline-danger' onClick={Unlogin}> Выйти</BootstrapButton>
         </div>
