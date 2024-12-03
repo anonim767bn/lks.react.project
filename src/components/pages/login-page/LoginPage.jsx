@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Text } from "@consta/uikit/Text";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const AUTH_TOKEN_KEY_NAME = 'sber-access_token';
-const REFRESH_TOKEN_KEY_NAME = 'sber-refresh_token';
+const AUTH_TOKEN_KEY_NAME = 'my-access_token';
+const REFRESH_TOKEN_KEY_NAME = 'my-refresh_token';
 
 export type Token = string;
 
